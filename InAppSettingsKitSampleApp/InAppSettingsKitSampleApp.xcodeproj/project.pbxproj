@@ -14,6 +14,8 @@
 		288765590DF743DE002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765580DF743DE002DB57D /* CoreGraphics.framework */; };
 		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
 		575C01E8127CE845009FBEA2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575C01E7127CE845009FBEA2 /* MessageUI.framework */; };
+		6515469C170C3511001F5BF8 /* IASKTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6515469B170C3511001F5BF8 /* IASKTimeField.m */; };
+		6515469F170C36A2001F5BF8 /* IASKPSTimeFieldSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6515469E170C36A1001F5BF8 /* IASKPSTimeFieldSpecifierViewCell.m */; };
 		6A1F35EE11490727003E6295 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1F35ED11490727003E6295 /* Icon.png */; };
 		6A9BBF591148F1DA003D97FA /* 20-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BBF581148F1DA003D97FA /* 20-gear2.png */; };
 		AA092DC815B73A0500081FBC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA092DC215B73A0500081FBC /* Localizable.strings */; };
@@ -62,6 +64,10 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* InAppSettingsKitSampleApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsKitSampleApp_Prefix.pch; sourceTree = "<group>"; };
 		575C01E7127CE845009FBEA2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		6515469A170C3511001F5BF8 /* IASKTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKTimeField.h; sourceTree = "<group>"; };
+		6515469B170C3511001F5BF8 /* IASKTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTimeField.m; sourceTree = "<group>"; };
+		6515469D170C36A1001F5BF8 /* IASKPSTimeFieldSpecifierViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKPSTimeFieldSpecifierViewCell.h; sourceTree = "<group>"; };
+		6515469E170C36A1001F5BF8 /* IASKPSTimeFieldSpecifierViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKPSTimeFieldSpecifierViewCell.m; sourceTree = "<group>"; };
 		6A1F35ED11490727003E6295 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6A9BBF581148F1DA003D97FA /* 20-gear2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear2.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* InAppSettingsKitSampleApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "InAppSettingsKitSampleApp-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -262,12 +268,16 @@
 				DA33F58610BC2222004736E8 /* IASKPSTextFieldSpecifierViewCell.m */,
 				AA87D1DB113FB0FA00101881 /* IASKPSTitleValueSpecifierViewCell.h */,
 				AA87D1DC113FB0FA00101881 /* IASKPSTitleValueSpecifierViewCell.m */,
+				6515469D170C36A1001F5BF8 /* IASKPSTimeFieldSpecifierViewCell.h */,
+				6515469E170C36A1001F5BF8 /* IASKPSTimeFieldSpecifierViewCell.m */,
 				DA33F58910BC2222004736E8 /* IASKSlider.h */,
 				DA33F58A10BC2222004736E8 /* IASKSlider.m */,
 				DA33F58B10BC2222004736E8 /* IASKSwitch.h */,
 				DA33F58C10BC2222004736E8 /* IASKSwitch.m */,
 				DA33F58D10BC2222004736E8 /* IASKTextField.h */,
 				DA33F58E10BC2222004736E8 /* IASKTextField.m */,
+				6515469A170C3511001F5BF8 /* IASKTimeField.h */,
+				6515469B170C3511001F5BF8 /* IASKTimeField.m */,
 			);
 			name = Views;
 			path = ../InAppSettingsKit/Views;
@@ -408,6 +418,8 @@
 				AA8746D0128B02B600CACD4C /* IASKSettingsStoreUserDefaults.m in Sources */,
 				AA8746D1128B02B600CACD4C /* IASKSettingsStoreFile.m in Sources */,
 				AA8746D2128B02B600CACD4C /* IASKSettingsStore.m in Sources */,
+				6515469C170C3511001F5BF8 /* IASKTimeField.m in Sources */,
+				6515469F170C36A2001F5BF8 /* IASKPSTimeFieldSpecifierViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
