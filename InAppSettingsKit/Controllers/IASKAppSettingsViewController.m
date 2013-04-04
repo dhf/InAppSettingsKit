@@ -601,6 +601,9 @@ CGRect IASKCGRectSwap(CGRect rect);
 		timeField.delegate = self;
 		timeField.textAlignment = specifier.textAlignment;
 		timeField.adjustsFontSizeToFitWidth = specifier.adjustsFontSizeToFitWidth;
+        UIDatePicker *timePicker = [[(UIDatePicker *)timeField.inputView retain] autorelease];
+        [timePicker setDate:timeValue];
+        
 	}
 	else if ([specifier.type isEqualToString:kIASKPSSliderSpecifier]) {
 		if (specifier.minimumValueImage.length > 0) {

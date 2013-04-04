@@ -53,3 +53,6 @@
 "AUTO_CONNECT"			= "Automatisch Verbinden";
 
 "EMPTY"                 = "";
+
+"TIME_VALUE"            = "Zeitangabe auswählen";
+"TIME_VALUE_TITLE"      = "Zeitfeld";
