@@ -32,6 +32,7 @@
 - (NSString*)title;
 - (NSString*)key;
 - (NSString*)type;
+- (NSString*)timeFormat;
 - (NSString*)titleForCurrentValue:(id)currentValue;
 - (NSInteger)multipleValuesCount;
 - (NSArray*)multipleValues;

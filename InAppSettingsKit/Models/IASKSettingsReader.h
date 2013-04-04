@@ -25,6 +25,7 @@
 #define kIASKFooterText                       @"FooterText"
 #define kIASKKey                              @"Key"
 #define kIASKFile                             @"File"
+#define kIASKTimeFormat                       @"TimeFormat"
 #define kIASKDefaultValue                     @"DefaultValue"
 #define kIASKMinimumValue                     @"MinimumValue"
 #define kIASKMaximumValue                     @"MaximumValue"

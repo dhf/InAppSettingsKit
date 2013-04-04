@@ -20,12 +20,14 @@
 #import "IASKSettingsStoreUserDefaults.h"
 #import "IASKPSSliderSpecifierViewCell.h"
 #import "IASKPSTextFieldSpecifierViewCell.h"
+#import "IASKPSTimeFieldSpecifierViewCell.h"
 #import "IASKPSTitleValueSpecifierViewCell.h"
 #import "IASKSwitch.h"
 #import "IASKSlider.h"
 #import "IASKSpecifier.h"
 #import "IASKSpecifierValuesViewController.h"
 #import "IASKTextField.h"
+#import "IASKTimeField.h"
 
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
@@ -45,6 +47,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 @property (nonatomic, retain) id currentFirstResponder;
 
 - (void)_textChanged:(id)sender;
+- (void)_timeChanged:(id)sender;
 - (void)synchronizeSettings;
 - (void)userDefaultsDidChange;
 - (void)reload;
@@ -479,6 +482,10 @@ CGRect IASKCGRectSwap(CGRect rect);
 		cell = [[IASKPSTextFieldSpecifierViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIASKPSTextFieldSpecifier];
 		[((IASKPSTextFieldSpecifierViewCell*)cell).textField addTarget:self action:@selector(_textChanged:) forControlEvents:UIControlEventEditingChanged];
 	}
+	else if ([identifier isEqualToString:kIASKPSTimeFieldSpecifier]) {
+		cell = [[IASKPSTimeFieldSpecifierViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIASKPSTimeFieldSpecifier];
+		[((IASKPSTimeFieldSpecifierViewCell*)cell).timeField addTarget:self action:@selector(_timeChanged:) forControlEvents:UIControlEventEditingChanged];
+	}
 	else if ([identifier isEqualToString:kIASKPSSliderSpecifier]) {
         cell = [[IASKPSSliderSpecifierViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIASKPSSliderSpecifier];
 	} else if ([identifier isEqualToString:kIASKPSChildPaneSpecifier]) {
@@ -855,6 +862,16 @@ CGRect IASKCGRectSwap(CGRect rect);
                                                       userInfo:[NSDictionary dictionaryWithObject:[text text]
                                                                                            forKey:[text key]]];
 }
+
+- (void)_timeChanged:(id)sender {
+    IASKTimeField *time = [[(IASKTimeField*)sender retain] autorelease];
+    [_settingsStore setObject:[time timeValue] forKey:[time key]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kIASKAppSettingChanged
+                                                        object:[time key]
+                                                      userInfo:[NSDictionary dictionaryWithObject:[time timeValue]
+                                                                                           forKey:[time key]]];
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
 	[textField resignFirstResponder];

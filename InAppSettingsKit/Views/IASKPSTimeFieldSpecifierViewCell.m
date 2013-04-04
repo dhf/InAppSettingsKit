@@ -69,7 +69,7 @@
 }
 
 - (void)timePickerValueChanged:(id)sender{
-    UIDatePicker *timePicker = ((UIDatePicker *)sender);
+    UIDatePicker *timePicker = [[(UIDatePicker *)sender retain] autorelease];
     NSDate *timeValue = timePicker.date;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"hh:mm"];

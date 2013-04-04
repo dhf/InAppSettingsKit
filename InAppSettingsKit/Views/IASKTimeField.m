@@ -14,12 +14,10 @@
 @implementation IASKTimeField
 
 @synthesize key=_key;
-@synthesize timeFormat=_timeFormat;
 @synthesize timeValue=_timeValue;
 
 - (void)dealloc {
     [_key release], _key = nil;
-    [_timeFormat release], _timeFormat = nil;
     [_timeValue release], _timeValue = nil;
 	
     [super dealloc];
