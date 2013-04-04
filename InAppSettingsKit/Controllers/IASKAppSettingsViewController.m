@@ -576,6 +576,32 @@ CGRect IASKCGRectSwap(CGRect rect);
 		textField.textAlignment = specifier.textAlignment;
 		textField.adjustsFontSizeToFitWidth = specifier.adjustsFontSizeToFitWidth;
 	}
+    else if ([specifier.type isEqualToString:kIASKPSTimeFieldSpecifier]) {
+		cell.textLabel.text = specifier.title;
+		
+		NSDate *timeValue = [self.settingsStore objectForKey:specifier.key] != nil ? [self.settingsStore objectForKey:specifier.key] : [NSDate date];
+        
+        NSString *timeFormat = specifier.timeFormat;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setLocale:[NSLocale currentLocale]];
+        [formatter setDateStyle:NSDateFormatterNoStyle];
+        [formatter setTimeStyle:NSDateFormatterShortStyle];
+        if (timeFormat) {
+            [formatter setDateFormat:timeFormat];
+        }
+        
+        NSString *textValue = [NSString stringWithFormat:@"%@", [formatter stringFromDate:timeValue]];
+
+		IASKTimeField *timeField = ((IASKPSTimeFieldSpecifierViewCell*)cell).timeField;
+		timeField.text = textValue;
+		timeField.key = specifier.key;
+        timeField.timeValue = timeValue;
+        timeField.timeFormat = specifier.timeFormat;
+		timeField.delegate = self;
+		timeField.textAlignment = specifier.textAlignment;
+		timeField.adjustsFontSizeToFitWidth = specifier.adjustsFontSizeToFitWidth;
+	}
 	else if ([specifier.type isEqualToString:kIASKPSSliderSpecifier]) {
 		if (specifier.minimumValueImage.length > 0) {
 			((IASKPSSliderSpecifierViewCell*)cell).minImage.image = [UIImage imageWithContentsOfFile:[_settingsReader pathForImageNamed:specifier.minimumValueImage]];
@@ -608,7 +634,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 	cell.imageView.image = specifier.cellImage;
 	cell.imageView.highlightedImage = specifier.highlightedCellImage;
     
-	if (![specifier.type isEqualToString:kIASKPSMultiValueSpecifier] && ![specifier.type isEqualToString:kIASKPSTitleValueSpecifier] && ![specifier.type isEqualToString:kIASKPSTextFieldSpecifier]) {
+	if (![specifier.type isEqualToString:kIASKPSMultiValueSpecifier] && ![specifier.type isEqualToString:kIASKPSTitleValueSpecifier] && ![specifier.type isEqualToString:kIASKPSTextFieldSpecifier] && ![specifier.type isEqualToString:kIASKPSTimeFieldSpecifier]) {
 		cell.textLabel.textAlignment = specifier.textAlignment;
 	}
 	cell.detailTextLabel.textAlignment = specifier.textAlignment;
@@ -665,6 +691,10 @@ CGRect IASKCGRectSwap(CGRect rect);
     else if ([[specifier type] isEqualToString:kIASKPSTextFieldSpecifier]) {
 		IASKPSTextFieldSpecifierViewCell *textFieldCell = (id)[tableView cellForRowAtIndexPath:indexPath];
 		[textFieldCell.textField becomeFirstResponder];
+    }
+    else if ([[specifier type] isEqualToString:kIASKPSTimeFieldSpecifier]) {
+		IASKPSTimeFieldSpecifierViewCell *timeFieldCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+		[timeFieldCell.timeField becomeFirstResponder];
     }
     else if ([[specifier type] isEqualToString:kIASKPSChildPaneSpecifier]) {
 
@@ -906,6 +936,9 @@ static NSDictionary *oldUserDefaults = nil;
 	
 	for (UITableViewCell *cell in self.tableView.visibleCells) {
 		if ([cell isKindOfClass:[IASKPSTextFieldSpecifierViewCell class]] && [((IASKPSTextFieldSpecifierViewCell*)cell).textField isFirstResponder]) {
+			[indexPathsToUpdate removeObject:[self.tableView indexPathForCell:cell]];
+		}
+		if ([cell isKindOfClass:[IASKPSTimeFieldSpecifierViewCell class]] && [((IASKPSTimeFieldSpecifierViewCell*)cell).timeField isFirstResponder]) {
 			[indexPathsToUpdate removeObject:[self.tableView indexPathForCell:cell]];
 		}
 	}

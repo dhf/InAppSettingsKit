@@ -71,9 +71,17 @@
 - (void)timePickerValueChanged:(id)sender{
     UIDatePicker *timePicker = [[(UIDatePicker *)sender retain] autorelease];
     NSDate *timeValue = timePicker.date;
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"hh:mm"];
-    [_timeField setText:[df stringFromDate:timeValue]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    if (_timeField.timeFormat) {
+        [formatter setDateFormat:_timeField.timeFormat];
+    }
+    [_timeField setText:[formatter stringFromDate:timeValue]];
+    [_timeField setTimeValue:timePicker.date];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"UITextFieldTextDidChangeNotification" object:_timeField];
+    [_timeField sendActionsForControlEvents:UIControlEventEditingChanged];
 }
 
 

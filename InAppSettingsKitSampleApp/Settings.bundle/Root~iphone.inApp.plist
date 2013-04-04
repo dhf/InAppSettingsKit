@@ -400,6 +400,18 @@
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
 		</dict>
+		<dict>
+			<key>Key</key>
+			<string>TimeValue</string>
+			<key>TimeFormat</key>
+			<string>hh:mm:ss a</string>
+			<key>Type</key>
+			<string>PSTimeFieldSpecifier</string>
+			<key>Title</key>
+			<string>Zeit</string>
+			<key>IASKTextAlignment</key>
+			<string>IASKUITextAlignmentRight</string>
+		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

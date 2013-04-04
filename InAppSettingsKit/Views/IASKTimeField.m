@@ -15,10 +15,12 @@
 
 @synthesize key=_key;
 @synthesize timeValue=_timeValue;
+@synthesize timeFormat=_timeFormat;
 
 - (void)dealloc {
     [_key release], _key = nil;
     [_timeValue release], _timeValue = nil;
+    [_timeFormat release], _timeFormat = nil;
 	
     [super dealloc];
 }
