@@ -13,6 +13,9 @@
 
 @implementation IASKTimeField
 
+- (CGRect)caretRectForPosition:(UITextPosition *)position {
+    return CGRectZero;
+}
 
 @end
 
