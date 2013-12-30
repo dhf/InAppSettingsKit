@@ -24,7 +24,7 @@
 		self.textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
         
         // TextField
-        _timeField = [[[IASKTimeField alloc] initWithFrame:CGRectMake(0, 0, 200, 21)] autorelease];
+        _timeField = [[IASKTimeField alloc] initWithFrame:CGRectMake(0, 0, 200, 21)];
         _timeField.autoresizingMask = UIViewAutoresizingFlexibleWidth |
         UIViewAutoresizingFlexibleBottomMargin |
         UIViewAutoresizingFlexibleLeftMargin;
@@ -32,7 +32,7 @@
 		_timeField.minimumFontSize = kIASKMinimumFontSize;
         _timeField.textColor = [UIColor colorWithRed:0.275 green:0.376 blue:0.522 alpha:1.000];
         // Configure the inputView for the item
-        UIDatePicker *timePicker = [[[UIDatePicker alloc] init] autorelease];
+        UIDatePicker *timePicker = [[UIDatePicker alloc] init];
         timePicker.datePickerMode = UIDatePickerModeTime;
         [timePicker addTarget:self action:@selector(timePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
         _timeField.inputView = timePicker;
@@ -69,7 +69,7 @@
 }
 
 - (void)timePickerValueChanged:(id)sender{
-    UIDatePicker *timePicker = [[(UIDatePicker *)sender retain] autorelease];
+    UIDatePicker *timePicker = (UIDatePicker *)sender;
     NSDate *timeValue = timePicker.date;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
@@ -82,11 +82,6 @@
     [_timeField setTimeValue:timePicker.date];
     //[[NSNotificationCenter defaultCenter] postNotificationName:@"UITextFieldTextDidChangeNotification" object:_timeField];
     [_timeField sendActionsForControlEvents:UIControlEventEditingChanged];
-}
-
-
-- (void)dealloc {
-    [super dealloc];
 }
 
 

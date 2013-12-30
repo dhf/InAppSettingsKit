@@ -569,7 +569,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 		timeField.delegate = self;
 		timeField.textAlignment = specifier.textAlignment;
 		timeField.adjustsFontSizeToFitWidth = specifier.adjustsFontSizeToFitWidth;
-        UIDatePicker *timePicker = [[(UIDatePicker *)timeField.inputView retain] autorelease];
+        UIDatePicker *timePicker = (UIDatePicker *)timeField.inputView;
         [timePicker setDate:timeValue];
         
 	}
@@ -816,7 +816,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 }
 
 - (void)_timeChanged:(id)sender {
-    IASKTimeField *time = [[(IASKTimeField*)sender retain] autorelease];
+    IASKTimeField *time = (IASKTimeField*)sender;
     [_settingsStore setObject:[time timeValue] forKey:[time key]];
     [[NSNotificationCenter defaultCenter] postNotificationName:kIASKAppSettingChanged
                                                         object:[time key]

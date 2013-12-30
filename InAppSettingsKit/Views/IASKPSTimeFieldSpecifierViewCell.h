@@ -14,9 +14,8 @@
 @class IASKTimeField;
 
 @interface IASKPSTimeFieldSpecifierViewCell : UITableViewCell {
-    IASKTimeField *_ttimeField;
 }
 
-@property (nonatomic, assign) IASKTimeField *timeField;
+@property (nonatomic, strong) IASKTimeField *timeField;
 
 @end

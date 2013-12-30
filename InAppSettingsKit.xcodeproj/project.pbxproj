@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65C6436D1871747800301250 /* IASKTimeField.h in Headers */ = {isa = PBXBuildFile; fileRef = 65C6436B1871747800301250 /* IASKTimeField.h */; };
+		65C6436E1871747800301250 /* IASKTimeField.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6436C1871747800301250 /* IASKTimeField.m */; };
+		65C64371187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 65C6436F187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.h */; };
+		65C64372187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C64370187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.m */; };
 		E401BD3C16820A0D00EAF534 /* IASKAppSettingsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E42ADAC21682036500295D85 /* IASKAppSettingsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E401BD3D16820A1700EAF534 /* IASKSpecifierValuesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E42ADAC41682036500295D85 /* IASKSpecifierValuesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E401BD3E16820A1C00EAF534 /* IASKAppSettingsWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E42ADAC61682036500295D85 /* IASKAppSettingsWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65C6436B1871747800301250 /* IASKTimeField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKTimeField.h; sourceTree = "<group>"; };
+		65C6436C1871747800301250 /* IASKTimeField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKTimeField.m; sourceTree = "<group>"; };
+		65C6436F187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IASKPSTimeFieldSpecifierViewCell.h; sourceTree = "<group>"; };
+		65C64370187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IASKPSTimeFieldSpecifierViewCell.m; sourceTree = "<group>"; };
 		E401BD4A16820BBA00EAF534 /* IASKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = IASKViewController.h; sourceTree = "<group>"; };
 		E42ADA8F168202D700295D85 /* libInAppSettingsKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInAppSettingsKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42ADA92168202D700295D85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -250,12 +258,16 @@
 				E42ADAD71682036500295D85 /* IASKPSTextFieldSpecifierViewCell.m */,
 				E42ADAD81682036500295D85 /* IASKPSTitleValueSpecifierViewCell.h */,
 				E42ADAD91682036500295D85 /* IASKPSTitleValueSpecifierViewCell.m */,
+				65C6436F187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.h */,
+				65C64370187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.m */,
 				E42ADADA1682036500295D85 /* IASKSlider.h */,
 				E42ADADB1682036500295D85 /* IASKSlider.m */,
 				E42ADADC1682036500295D85 /* IASKSwitch.h */,
 				E42ADADD1682036500295D85 /* IASKSwitch.m */,
 				E42ADADE1682036500295D85 /* IASKTextField.h */,
 				E42ADADF1682036500295D85 /* IASKTextField.m */,
+				65C6436B1871747800301250 /* IASKTimeField.h */,
+				65C6436C1871747800301250 /* IASKTimeField.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,6 +347,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C6436D1871747800301250 /* IASKTimeField.h in Headers */,
 				E401BD3C16820A0D00EAF534 /* IASKAppSettingsViewController.h in Headers */,
 				E401BD3D16820A1700EAF534 /* IASKSpecifierValuesViewController.h in Headers */,
 				E401BD3E16820A1C00EAF534 /* IASKAppSettingsWebViewController.h in Headers */,
@@ -348,6 +361,7 @@
 				E401BD4616820A2D00EAF534 /* IASKPSTitleValueSpecifierViewCell.h in Headers */,
 				E401BD4716820A2D00EAF534 /* IASKSlider.h in Headers */,
 				E401BD4816820A2D00EAF534 /* IASKSwitch.h in Headers */,
+				65C64371187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.h in Headers */,
 				E401BD4916820A2D00EAF534 /* IASKTextField.h in Headers */,
 				E401BD4B16820BBA00EAF534 /* IASKViewController.h in Headers */,
 			);
@@ -452,6 +466,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C64372187174C300301250 /* IASKPSTimeFieldSpecifierViewCell.m in Sources */,
+				65C6436E1871747800301250 /* IASKTimeField.m in Sources */,
 				E4EDC59D16820D9500BD3CA9 /* IASKAppSettingsViewController.m in Sources */,
 				E4EDC59E16820D9500BD3CA9 /* IASKSpecifierValuesViewController.m in Sources */,
 				E4EDC59F16820D9500BD3CA9 /* IASKAppSettingsWebViewController.m in Sources */,

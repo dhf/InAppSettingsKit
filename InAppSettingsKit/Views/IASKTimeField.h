@@ -13,13 +13,10 @@
 
 
 @interface IASKTimeField : UITextField {
-    NSString *_key;
-    NSDate   *_timeValue;
-    NSString *_timeFormat;
 }
 
-@property (nonatomic, retain) NSString *key;
-@property (nonatomic, retain) NSDate *timeValue;
-@property (nonatomic, retain) NSString *timeFormat;
+@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) NSDate *timeValue;
+@property (nonatomic, strong) NSString *timeFormat;
 
 @end
