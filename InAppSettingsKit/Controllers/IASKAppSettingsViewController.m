@@ -571,6 +571,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 		timeField.adjustsFontSizeToFitWidth = specifier.adjustsFontSizeToFitWidth;
         UIDatePicker *timePicker = (UIDatePicker *)timeField.inputView;
         [timePicker setDate:timeValue];
+        [self _timeChanged:timeField];
         
 	}
 	else if ([specifier.type isEqualToString:kIASKPSSliderSpecifier]) {
