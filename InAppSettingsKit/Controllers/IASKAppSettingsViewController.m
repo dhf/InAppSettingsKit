@@ -144,14 +144,6 @@ CGRect IASKCGRectSwap(CGRect rect);
     [self.tableView addGestureRecognizer:tapGesture];
 }
 
-- (void)viewDidUnload {
-  [super viewDidUnload];
-
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-	self.view = nil;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
 	// if there's something selected, the value might have changed
 	// so reload that row
@@ -765,13 +757,13 @@ CGRect IASKCGRectSwap(CGRect rect);
                              animated:YES
                            completion:nil];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle:NSLocalizedString(@"Mail not configured", @"InAppSettingsKit")
-                                  message:NSLocalizedString(@"This device is not configured for sending Email. Please configure the Mail settings in the Settings app.", @"InAppSettingsKit")
-                                  delegate: nil
-                                  cancelButtonTitle:NSLocalizedString(@"OK", @"InAppSettingsKit")
-                                  otherButtonTitles:nil];
-            [alert show];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Mail not configured", @"InAppSettingsKit")
+                                                                           message:NSLocalizedString(@"This device is not configured for sending Email. Please configure the Mail settings in the Settings app.", @"InAppSettingsKit")
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"InAppSettingsKit")
+                                                      style:UIAlertActionStyleCancel
+                                                    handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
         }
         
     } else if ([[specifier type] isEqualToString:kIASKCustomViewSpecifier] && [self.delegate respondsToSelector:@selector(settingsViewController:tableView:didSelectCustomViewSpecifier:)]) {
